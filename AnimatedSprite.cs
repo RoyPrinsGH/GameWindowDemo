@@ -82,7 +82,7 @@ namespace WinFormsApp1
             Position = new Point(Position.X, Position.Y + 1);
         }
 
-        #region IDisposable Members and Helpers
+        #region IDisposable Impl
         public void Dispose()
         {
             Dispose(true);
@@ -91,7 +91,10 @@ namespace WinFormsApp1
 
         protected virtual void Dispose(bool disposing)
         {
-            SpriteSheet?.Dispose();
+            if (disposing)
+            {
+                SpriteSheet?.Dispose();
+            }
         }
 
         ~AnimatedSprite()

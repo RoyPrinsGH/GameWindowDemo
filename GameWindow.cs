@@ -76,5 +76,18 @@ namespace WinFormsApp1
             Stopwatch.Reset();
             Invalidate();
         }
+
+        #region IDisposable Impl
+        private void DisposeGameObjects()
+        {
+            foreach (object obj in GameObjects)
+            {
+                if (obj is IDisposable disposableObj)
+                {
+                    disposableObj.Dispose();
+                }
+            }
+        }
+        #endregion
     }
 }
